@@ -2,15 +2,10 @@
 
 namespace App\Models;
 
-class Info
+use MF\Model\Model;
+
+class Info extends Model
 {
-	private $db;
-
-	public function __construct(\PDO $db)
-	{
-		$this->db = $db;
-	}
-
 	public function getInfo()
 	{
 		$query = 'SELECT * FROM tb_info';
