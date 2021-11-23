@@ -2,22 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Connection;
-use App\Models\Produto;
-
 use MF\Controller\Action; // Importando a classe Action
+use MF\Model\Container;
+
+use App\Models\Produto;
+use App\Models\Info;
 
 class indexController extends Action // Extendendo de uma classe abstrata
 {
 	public function index()
 	{
-		$conn = Connection::getDb();
+		$info = Container::getModel('Info');
 
-		$produto = new Produto($conn);
+		$informacao = $info->getinfo();
 
-		$produtos = $produto->getProdutos();
-
-		$this->view->dados = $produtos;
+		$this->view->dados = $informacao;
 
 		// $this->view->dados = ['Matheus', 'Ellen', 'Maria'];
 		$this->render('index', 'layout1');
