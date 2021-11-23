@@ -6,8 +6,9 @@
 	echo 'Hello, world!';
 	echo '<br>';
 
-	foreach($this->view->dados as $key => $value) { // Testando a recuperação de dados do IndexController
-		echo $value;
+	foreach($this->view->dados as $key => $produto) { // Testando a recuperação de dados do IndexController
+		
+		echo $produto['id_produto'] . ": " . $produto['descricao'] . " | R$" . $produto['preco'];
 		echo '<br>';
 	}
 ?>
