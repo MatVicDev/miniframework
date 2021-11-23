@@ -9,7 +9,7 @@ class indexController extends Action // Extendendo de uma classe abstrata
 	public function index()
 	{
 		$this->view->dados = ['Matheus', 'Ellen', 'Maria'];
-		$this->render('index');
+		$this->render('index', 'layout1');
 	}	
 }
 ?>
