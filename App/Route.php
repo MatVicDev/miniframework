@@ -2,11 +2,11 @@
 
 namespace App;
 
-use MF\Init\Bootstrap; // Importando uma class abstrata
+use MF\Init\Bootstrap;
 
 class Route extends Bootstrap
 {
-	protected function initRoutes() // Quando uma determinada rota for acionada
+	protected function initRoutes()
 	{
 		$route['index'] = array(
 			'route' => '/',						// Rota raíz

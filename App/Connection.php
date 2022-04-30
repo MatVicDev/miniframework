@@ -2,20 +2,23 @@
 
 namespace App;
 
-class Connection // Classe para conexão com o banco de dados;
+class Connection
 {
-	public static function getDb() // Método para conectar no banco de dados
+	private $user = "root";
+	private $password = "root";
+
+	public static function getDb()
 	{
 		try {
 			$conn = new \PDO(
-				'mysql:host=localhost;dbname=mvc', // Banco de dados
-				'root', // Usuário
-				'root'  // Senha
-			); // Conexão via PDO
+				'mysql:host=localhost;dbname=mvc',
+				$user,
+				$password
+			);
 
-			return $conn; // Retorna a conexão
+			return $conn;
 
-		} catch(\PDOException $e) { // Caso haja um erro
+		} catch(\PDOException $e) {
 			echo "Erro ao conectar com o banco de dados: " . $e->getMessage();
 		}
 	}

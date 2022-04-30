@@ -8,13 +8,12 @@ abstract class Bootstrap
 
 	abstract protected function initRoutes();
 
-	public function __construct() // Método contrutor
+	public function __construct()
 	{
-		$this->initRoutes();			// Executa o método initRoute() na instância do objeto
-		$this->run($this->getUrl());	// Executa o método run() passando as rotas como parâmetro
+		$this->initRoutes();
+		$this->run($this->getUrl());
 	}
 
-	// Métodos Get e Set (encapsulamento);
 	public function getRoutes()
 	{
 		return $this->routes;
@@ -25,9 +24,9 @@ abstract class Bootstrap
 		$this->routes = $routes;
 	}
 
-	protected function run($url) // Método para executar a função da action
+	protected function run($url)
 	{
-		foreach($this->getRoutes() as $key => $route) { // Percorre por todas as rotas recebidas
+		foreach($this->getRoutes() as $key => $route) {
 
 			if($url == $route['route']) {
 				$class = 'App\\Controllers\\'.ucfirst($route['controller']);
@@ -39,9 +38,9 @@ abstract class Bootstrap
 		}
 	}
 
-	protected function getUrl() // Retorna a URL requesitada
+	protected function getUrl()
 	{
-		return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // Retorna apenas o path da URL
+		return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 	}
 }
 ?>

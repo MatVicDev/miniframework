@@ -8,10 +8,10 @@ abstract class Action
 
 	public function __construct()
 	{
-		$this->view = new \stdClass(); // Criando um objeto padrão
+		$this->view = new \stdClass();
 	}
 
-	protected function render($view, $layout) // Método para retornar uma view
+	protected function render($view, $layout)
 	{
 		$this->view->page = $view;
 		if(file_exists("../App/Views/".$layout.".phtml"))
@@ -22,11 +22,11 @@ abstract class Action
 
 	protected function content()
 	{
-		$class = get_class($this); // Pega a classe atual
-		$class = str_replace("App\\Controllers\\", "", $class); // Pega o nome da classe
-		$class = strtolower(str_replace("Controller", "", $class)); // Pega apenas o primeiro nome
+		$class = get_class($this);
+		$class = str_replace("App\\Controllers\\", "", $class);
+		$class = strtolower(str_replace("Controller", "", $class));
 
-		require_once "../App/Views/".$class."/".$this->view->page.".phtml"; // Um require dinâmico
+		require_once "../App/Views/".$class."/".$this->view->page.".phtml";
 	}
 }
 ?>

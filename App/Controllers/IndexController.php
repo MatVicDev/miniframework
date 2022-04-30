@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-use MF\Controller\Action; // Importando a classe Action
+use MF\Controller\Action;
 use MF\Model\Container;
 
-class indexController extends Action // Extendendo de uma classe abstrata
+class indexController extends Action
 {
 	public function index()
 	{
